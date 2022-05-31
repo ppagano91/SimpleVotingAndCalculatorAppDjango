@@ -100,15 +100,19 @@
           <img class="img-fluid" src="{% static 'voting.jpg' %}" id="form" />
           <div class="card">
             <div class="card-body">
-              <form method="GET" action="{% url 'submitquery' %}">
-                <div class="form-group">
-                  <input
-                    type="search"
-                    class="form-control"
-                    name="query"
-                    id="query"
-                  />
-                </div>
+
+              <!-- FORM -->
+              <form method="GET" action="{% url 'getquery' %}">
+                <input list="languages" class="form-control" style="margin-bottom: 1rem;" name="languages">
+                <datalist id="languages">
+                  <option value="Python">
+                  <option value="JavaScript">
+                  <option value="Java">
+                  <option value="Programming">
+                  <option value="C">
+                  <option value="C++">
+                  <option value="PHP">
+                </datalist>
                 <div class="row">
                   <div class="col-md-6">
                     <button

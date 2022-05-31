@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse,JsonResponse
 
 # Create your views here.
 
@@ -9,4 +10,8 @@ def index(request):
         "arr":arr
     }
     return render(request,"index.html",context=mydict)
+
+def getquery(request):
+    query=request.GET['languages']
+    return HttpResponse(query)
 
