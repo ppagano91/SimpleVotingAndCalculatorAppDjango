@@ -12,5 +12,20 @@ def submitquery(request):
         'query':query
     }
 
+    try:
+        result=eval(query)
+        res={
+        'query':query,
+        'result':result,
+        'error':False,
+        }
+        return render(request, "index.html",context=res)
+    except:
+        res={
+        'query':query,
+        'error':True,
+        }
+        return render(request, "index.html",context=res)
+
     return HttpResponse(query)
     return JsonResponse(json)
