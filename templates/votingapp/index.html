@@ -53,47 +53,7 @@
     </nav>
 
     <!-- APP  -->
-    {% if error %}
-    <div class="row">
-      <div class="col-md-6" style="margin: 0 auto">
-        <div
-          class="alert alert-danger alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>Error</strong>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="alert"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </div>
-    </div>
-    {% endif %} {% if result %}
-    <div class="row">
-      <div class="col-md-6" style="margin: 0 auto">
-        <div
-          class="alert alert-success alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>Congratulations!</strong>
-          <h5>{{answer}}</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="alert"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-
+    {{globalcount}}
     <div class="container-fluid" style="margin-bottom: 40rem; margin-top: 3rem">
       <div class="row">
         <div class="col-md-6" style="margin: 1rem auto 0 auto">
@@ -103,7 +63,8 @@
 
               <!-- FORM -->
               <form method="GET" action="{% url 'getquery' %}">
-                <input list="languages" class="form-control" style="margin-bottom: 1rem;" name="languages">
+                <!-- STATIC -->
+                <!-- <input list="languages" class="form-control" style="margin-bottom: 1rem;" name="languages">
                 <datalist id="languages">
                   <option value="Python">
                   <option value="JavaScript">
@@ -112,8 +73,19 @@
                   <option value="C">
                   <option value="C++">
                   <option value="PHP">
+                </datalist> -->
+
+                <!-- DYNAMIC -->
+                <input list="languages" class="form-control" style="margin-bottom: 1rem;" name="languages">
+                <datalist id="languages">
+                  {% for language in arr %}
+                    <option value="{{language}}">
+                  {% endfor %}
+
                 </datalist>
+
                 <div class="row">
+
                   <div class="col-md-6">
                     <button
                       type="submit"
