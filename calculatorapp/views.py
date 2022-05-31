@@ -29,5 +29,5 @@ def submitquery(request):
         }
         return render(request, "index.html",context=res)
 
-    return HttpResponse(query)
-    return JsonResponse(json)
+    # return HttpResponse(query)
+    # return JsonResponse(json)

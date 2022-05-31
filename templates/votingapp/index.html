@@ -17,12 +17,12 @@
       crossorigin="anonymous"
     />
 
-    <title>Django Calculator App</title>
+    <title>Django Voting App</title>
   </head>
   <body>
     <!-- HEADER -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#">Django Calculator App</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Django Voting App</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -51,7 +51,6 @@
         </ul>
       </div>
     </nav>
-    <h1 style="margin-top: 4rem">Welcome to the Calculator App!</h1>
 
     <!-- APP  -->
     {% if error %}
@@ -83,7 +82,7 @@
           role="alert"
         >
           <strong>Congratulations!</strong>
-          <h5>{{query}}={{answer}}</h5>
+          <h5>{{answer}}</h5>
           <button
             type="button"
             class="close"
@@ -97,10 +96,10 @@
     </div>
     {% endif %}
 
-    <div class="container-fluid" style="margin-bottom: 40rem">
-      <div class="row">
+    <div class="container-fluid" style="margin-bottom: 40rem; margin-top: 3rem">
+      <div class="row" >
         <div class="col-md-6" style="margin: 1rem auto 0 auto">
-          <img class="img-fluid" src="{% static 'main.png' %}" id="form" />
+          <img class="img-fluid" src="{% static 'voting.jpg' %}" id="form" />
           <div class="card">
             <div class="card-body">
               <form method="GET" action="{% url 'submitquery' %}">
@@ -149,7 +148,7 @@
           </p>
           <hr />
           <p class="lead" style="text-align: center">
-            Our Calculator App can perform mathematical operations
+            Pick your Favourite Language and Vote
           </p>
         </div>
       </div>
@@ -161,19 +160,8 @@
             id="instructions"
             name="instructions"
           >
-            Instructions
+            Select Your Language And See Results
           </p>
-          <hr />
-          <ul class="list-group">
-            <li class="list-group-item">+ Addition</li>
-            <li class="list-group-item">- Minus</li>
-            <li class="list-group-item">* Multiplication</li>
-            <li class="list-group-item">/ Division</li>
-            <li class="list-group-item">% Mod</li>
-            <li class="list-group-item">// Floor Division</li>
-            <li class="list-group-item">** Exponential</li>
-            <li class="list-group-item">Can use Parentheses</li>
-          </ul>
         </div>
       </div>
       <div class="row">
