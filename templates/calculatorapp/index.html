@@ -1,6 +1,5 @@
-
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -45,58 +44,102 @@
           <li class="nav-item">
             <a class="nav-link" href="#about">About</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#instructions">Instructions</a>
+          </li>
         </ul>
-
       </div>
     </nav>
     <h1>Hello, world!</h1>
 
-    <div class="container-fluid" style="margin-bottom: 20rem;">
-        <div class="row">
-            <div class="col-md-6" style="margin: 1rem auto 0 auto;">
-                <img class="img-fluid" src="{% static 'main.png' %}">
-                <div class="card">
-                    <div class="card-body">
-                        <form method="GET" action="#">
-                            <div class="form-group">
-                                <input type="search" class="form-control" name="query" id="query">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-success" style="display:block; margin: 0 auto;">Submit</button>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="rest" class="btn btn-warning" style="display:block; margin: 0 auto;">Reset</button>
-
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
+    <div class="container-fluid" style="margin-bottom: 40rem">
+      <div class="row">
+        <div class="col-md-6" style="margin: 1rem auto 0 auto">
+          <img class="img-fluid" src="{% static 'main.png' %}" />
+          <div class="card">
+            <div class="card-body">
+              <form method="GET" action="{% url 'submitquery' %}">
+                <div class="form-group">
+                  <input
+                    type="search"
+                    class="form-control"
+                    name="query"
+                    id="query"
+                  />
                 </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <button
+                      type="submit"
+                      class="btn btn-success"
+                      style="display: block; margin: 0 auto"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <button
+                      type="rest"
+                      class="btn btn-warning"
+                      style="display: block; margin: 0 auto"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-6" style="margin: 2rem auto 0 auto;">
-                <p class="display-4" style="text-align: center;" id="about" name="about">About</p>
-                <hr>
-                <p class="lead" style="text-align: center;">Our Calculator App can perform mathematical operations</p>
-            </div>
-
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="margin: 2rem auto 0 auto">
+          <p
+            class="display-4"
+            style="text-align: center"
+            id="about"
+            name="about"
+          >
+            About
+          </p>
+          <hr />
+          <p class="lead" style="text-align: center">
+            Our Calculator App can perform mathematical operations
+          </p>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="margin: 2rem auto 0 auto">
+          <p
+            class="display-4"
+            style="text-align: center"
+            id="instructions"
+            name="instructions"
+          >
+            Instructions
+          </p>
+          <hr />
+          <ul class="list-group">
+            <li class="list-group-item">+ Addition</li>
+            <li class="list-group-item">- Minus</li>
+            <li class="list-group-item">* Multiplication</li>
+            <li class="list-group-item">/ Division</li>
+            <li class="list-group-item">// Floor Division</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="fixed-bottom navbar-light" style="background:black;color: white; text-align:center; ">
-                <p>Thanks for using out app</p>
-            </div>
-
+      <div class="row">
+        <div
+          class="fixed-bottom navbar-light"
+          style="background: black; color: white; text-align: center"
+        >
+          <p>Thanks for using out app</p>
         </div>
+      </div>
     </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
