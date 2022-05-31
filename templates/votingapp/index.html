@@ -21,7 +21,7 @@
   </head>
   <body>
     <!-- HEADER -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Django Voting App</a>
       <button
         class="navbar-toggler"
@@ -42,11 +42,17 @@
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#about">About</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#instructions">Instructions</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#result">Result</a>
           </li>
         </ul>
       </div>
@@ -54,13 +60,15 @@
 
     <!-- APP  -->
     {{globalcount}}
+    <br />
+    {% for key, value in globalcount.items %} {{key}} - {{value}} {% endfor %}
+
     <div class="container-fluid" style="margin-bottom: 40rem; margin-top: 3rem">
       <div class="row">
         <div class="col-md-6" style="margin: 1rem auto 0 auto">
           <img class="img-fluid" src="{% static 'voting.jpg' %}" id="form" />
           <div class="card">
             <div class="card-body">
-
               <!-- FORM -->
               <form method="GET" action="{% url 'getquery' %}">
                 <!-- STATIC -->
@@ -76,19 +84,21 @@
                 </datalist> -->
 
                 <!-- DYNAMIC -->
-                <input list="languages" class="form-control" style="margin-bottom: 1rem;" name="languages">
+                <input
+                  list="languages"
+                  class="form-control"
+                  style="margin-bottom: 1rem"
+                  name="languages"
+                />
                 <datalist id="languages">
                   {% for language in arr %}
-                    <option value="{{language}}">
-                  {% endfor %}
-
+                  <option value="{{language}}">{% endfor %}</option>
                 </datalist>
 
                 <div class="row">
-
                   <div class="col-md-6">
                     <button
-                      type="submit"
+                      type="button"
                       class="btn btn-success"
                       style="display: block; margin: 0 auto"
                     >
@@ -110,6 +120,63 @@
           </div>
         </div>
       </div>
+
+      <!-- ABPUT & INSTRUCTIONS -->
+      <div class="row" style="margin-top: 1rem">
+        <div class="col-md-6" style="margin: 2rem auto 0 auto">
+          <p
+            class="badge badge-warning"
+            style="text-align: center; display: block; font-size: 2rem"
+            id="result"
+            name="result"
+          >
+            Result
+          </p>
+          <hr />
+          <p class="lead" style="text-align: center; font-size: 2rem">
+            Result Table
+          </p>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 1rem">
+        <div class="col-md-12" style="margin: 2rem auto 0 auto">
+
+          <!-- TABLE -->
+          <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+
       <div class="row">
         <div class="col-md-6" style="margin: 2rem auto 0 auto">
           <p
@@ -121,7 +188,7 @@
             About
           </p>
           <hr />
-          <p class="lead" style="text-align: center;font-size:2rem;">
+          <p class="lead" style="text-align: center; font-size: 2rem">
             Pick your Favourite Language and Vote
           </p>
         </div>
@@ -136,11 +203,8 @@
           >
             Instructions
           </p>
-
-          <p
-            class="display-4"
-            style="text-align: center; font-size: 2rem"
-          >
+          <hr />
+          <p class="display-4" style="text-align: center; font-size: 2rem">
             Select Your Language And See Results
           </p>
         </div>

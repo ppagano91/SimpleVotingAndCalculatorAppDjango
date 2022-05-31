@@ -14,6 +14,7 @@ def index(request):
 
 def getquery(request):
     query=request.GET['languages']
+
     if query in globalcount:
         # if already exist then increment the value
         globalcount[query]=globalcount[query]+1
@@ -26,5 +27,5 @@ def getquery(request):
 
     }
     return render(request, "index.html",context=mydict)
-    return HttpResponse(query)
+    # return HttpResponse(query)
 
