@@ -133,9 +133,10 @@
             Result Table
           </p>
           <br>
-          <a href="{% url 'sortdatadescending' %}" class="btn btn-primary"> Sort Data in Descending Order<a>
-            <br>
-          <a href="{% url 'sortdataascending' %}" class="btn btn-primary"> Sort Data in Ascending Order<a>
+          <div>
+            <a href="{% url 'sortdatadescending' %}" class="btn btn-primary"> Sort Data in Descending Order<a>
+            <a href="{% url 'sortdataascending' %}" class="btn btn-primary"> Sort Data in Ascending Order<a>
+          </div>
         </div>
       </div>
       <div class="row" style="margin-top: 1rem">
@@ -156,9 +157,9 @@
                 <tr>
                   <td>{{forloop.counter}}</td>
                   <td>{{key}}</td>
-                  <td>{{value}}</td>
+                  <td>{{value.count}}</td>
                   <td><div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: {{value}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{value}}</div>
+                        <div class="progress-bar" role="progressbar" style="width: {{value.percentage}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{value.percentage}}%</div>
                       </div>
                   </td>
                 </tr>

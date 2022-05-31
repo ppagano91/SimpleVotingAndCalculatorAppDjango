@@ -15,33 +15,35 @@ def index(request):
 def getquery(request):
     query=request.GET['languages']
 
-    if query in globalcount:
-        # if already exist then increment the value
-        globalcount[query]=globalcount[query]+1
+    if query in globalcount:        # if already exist then increment the value
+        print("if")
+
+        globalcount[query]["count"]=globalcount[query]["count"]+1
     else:
+        print("else")
         # first occurrence
-        globalcount[query]=1
+        globalcount[query]={}
+        globalcount[query]["count"]=1
 
-    # count=0
-    # for element in globalcount:
-    #     count=count+globalcount[element]["count"]
+    count=0
+    for element in globalcount:
+        count=count+globalcount[element]["count"]
 
-    # if query in globalcount:
-    #     globalcount[query]["percentage"]=globalcount[query]["count"]/count
-    # else:
-    #     globalcount[query]["percentage"]=0
+    for i in globalcount:
+        globalcount[i]["percentage"]="{:.2f}".format((globalcount[i]["count"]/count)*100)
+
 
     mydict={
         "arr":arr,
         "globalcount":globalcount,
-
     }
     print(mydict)
     return render(request, "index.html",context=mydict)
-    # return HttpResponse(query)
+    # return JsonResponse(mydict)
 def sortdataascending(request):
     global globalcount
-    globalcount = dict(sorted(globalcount.items(),key=lambda x: x[1]))
+    print(globalcount.items())
+    # globalcount = dict(sorted(globalcount[0].items(),key=lambda x: x[1]))
 
     mydict={
         "arr":arr,
@@ -51,7 +53,8 @@ def sortdataascending(request):
 
 def sortdatadescending(request):
     global globalcount
-    globalcount = dict(sorted(globalcount.items(),key=lambda x: x[1], reverse=True ))
+    # print(globalcount.items()[0][1].items())
+    # globalcount = dict(sorted(globalcount[0].items(),key=lambda x: x[1], reverse=True ))
 
     mydict={
         "arr":arr,
