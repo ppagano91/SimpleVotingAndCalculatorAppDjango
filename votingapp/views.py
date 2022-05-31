@@ -3,7 +3,7 @@ from django.http import HttpResponse,JsonResponse
 
 # Create your views here.
 
-arr=['Java','Python','Java','C','C++','DotNET','JavaScript','PHP','Swift','SQL','R','D','Ruby','Delphi','Objective-C','Go','Java','Visual Basic','Perl','MATLAB',]
+arr=['Java','Python','C','C++','DotNET','JavaScript','PHP','Swift','SQL','R','D','Ruby','Delphi','Objective-C','Go','Java','Visual Basic','Perl','MATLAB',]
 globalcount=dict()
 
 def index(request):
