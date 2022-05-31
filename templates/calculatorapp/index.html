@@ -73,8 +73,9 @@
         </div>
       </div>
     </div>
+    {% endif %}
 
-    {% else %}
+    {% if result %}
     <div class="row">
       <div class="col-md-6" style="margin: 0 auto">
         <div
@@ -82,7 +83,7 @@
           role="alert"
         >
           <strong>Congratulations!</strong>
-          <h5>{{result}}</h5>
+          <h5>{{answer}}</h5>
           <button
             type="button"
             class="close"

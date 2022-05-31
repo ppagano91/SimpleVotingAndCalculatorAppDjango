@@ -13,17 +13,19 @@ def submitquery(request):
     }
 
     try:
-        result=eval(query)
+        answer=eval(query)
         res={
         'query':query,
-        'result':result,
+        'answer':answer,
         'error':False,
+        'result':True,
         }
         return render(request, "index.html",context=res)
     except:
         res={
         'query':query,
         'error':True,
+        'result':False,
         }
         return render(request, "index.html",context=res)
 
